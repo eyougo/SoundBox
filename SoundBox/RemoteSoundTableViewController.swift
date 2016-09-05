@@ -119,7 +119,21 @@ class RemoteSoundTableViewController: UITableViewController {
         cell.downloadAction = { (cell) in
             if let remoteSound = cell.remoteSound {
                 remoteDataController.downloadSound(remoteSound, finished: { (success, message, remoteSound, file) in
-                    localDataController.saveRemoteSound(remoteSound, file: file)
+                    let alertController = UIAlertController(title: "下载失败", message: message, preferredStyle: .Alert)
+                    let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.Default, handler: nil)
+                    alertController.addAction(okAction)
+                    //if success {
+                        if let filePath = file {
+                            let saved = localDataController.saveRemoteSound(remoteSound, file: filePath)
+                            if saved {
+                                alertController.title = "下载成功"
+                                alertController.message = "已下载到我的声音中"
+                            } else {
+                                alertController.message = "我的声音中已存在"
+                            }
+                        }
+                    //}
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 })
             }
         }

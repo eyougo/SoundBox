@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LocalSoundTableViewController: UITableViewController {
     
@@ -17,6 +18,8 @@ class LocalSoundTableViewController: UITableViewController {
     var count = 0
     
     var nextStart = 0
+    
+    var soundPlayer = AVPlayer ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +116,17 @@ class LocalSoundTableViewController: UITableViewController {
         return cell
     }
     
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.soundPlayer.pause()
+        let sound = sounds[indexPath.section][indexPath.row]
+        if let filePath = sound.file {
+            let fileURL = NSURL.fileURLWithPath(filePath)
+            let item = AVPlayerItem(URL: fileURL)
+            soundPlayer.replaceCurrentItemWithPlayerItem(item)
+            soundPlayer.play()
+        }
+    }
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

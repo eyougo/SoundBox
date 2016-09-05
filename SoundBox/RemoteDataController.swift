@@ -33,8 +33,6 @@ class RemoteDataController {
         
         manager.request(.GET, ApiRoot + "/sounds?offset=\(offset)&limit=\(limit)", headers: headers, encoding: .JSON)
             .responseJSON{ response in
-                
-                debugPrint(response)
                 if let error = response.result.error {
                     print(error.localizedDescription)
                     finished(success: false, message: "服务器错误，请稍候重试", remoteSounds, nextStart:-1)
@@ -68,7 +66,7 @@ class RemoteDataController {
         }
     }
     
-    func downloadSound(remoteSound: RemoteSound, finished: (success:Bool, message:String?, RemoteSound, file: String) -> Void){
+    func downloadSound(remoteSound: RemoteSound, finished: (success:Bool, message:String?, RemoteSound, file: String?) -> Void){
         
         if let url = remoteSound.url {
             let fileManager = NSFileManager.defaultManager()
@@ -87,11 +85,11 @@ class RemoteDataController {
                     return desination
                 }.response { _, _, _, error in
                     if let error = error {
-                        finished(success: false, message: error.localizedDescription, remoteSound, file: desination.absoluteString)
+                        print(error.localizedDescription)
+                        finished(success: false, message: error.localizedDescription, remoteSound, file: desination.path)
                     } else {
-                        
-                        finished(success: true, message: nil, remoteSound, file: desination.absoluteString)
-                        print("Downloaded file successfully")
+                        print("download success")
+                        finished(success: true, message: nil, remoteSound, file: desination.path)
                     }
                 }
         }

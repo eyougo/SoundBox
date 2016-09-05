@@ -44,7 +44,7 @@ class LocalDataController: NSObject {
             let counts = try managedObjectContext.executeFetchRequest(soundsFetch) as! [NSNumber]
             return counts[0].integerValue
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch sounds: \(error)")
         }
     }
     
@@ -56,13 +56,25 @@ class LocalDataController: NSObject {
             let sounds = try managedObjectContext.executeFetchRequest(soundsFetch) as! [Sound]
             return sounds
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch sounds: \(error)")
         }
     }
     
     
     
-    func saveRemoteSound(remoteSound:RemoteSound, file: String) {
+    func saveRemoteSound(remoteSound:RemoteSound, file: String) -> Bool{
+        let soundsFetch = NSFetchRequest(entityName: "Sound")
+        let predicate = NSPredicate(format: "id == %d", remoteSound.id)
+        soundsFetch.predicate = predicate
+        do {
+            let sounds = try managedObjectContext.executeFetchRequest(soundsFetch) as! [Sound]
+            if sounds.count > 0 {
+                return false
+            }
+        } catch {
+            fatalError("Failed to fetch sounds: \(error)")
+        }
+        
         let sound = NSEntityDescription.insertNewObjectForEntityForName("Sound", inManagedObjectContext: self.managedObjectContext) as! Sound
 
         sound.id = remoteSound.id
@@ -75,9 +87,19 @@ class LocalDataController: NSObject {
         } catch {
             fatalError("Failure to save context: \(error)")
         }
+        return true
     }
     
     func deleteSound(sound: Sound) {
+        let fileManager = NSFileManager.defaultManager()
+        if let filePath = sound.file {
+            let exist = fileManager.fileExistsAtPath(filePath)
+            print("\(filePath) ====== \(exist)")
+            if exist {
+                try! fileManager.removeItemAtPath(filePath)
+            }
+        }
+        
         managedObjectContext.deleteObject(sound)
         do {
             try managedObjectContext.save()
