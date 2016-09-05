@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3E2E03898BA9382F31A23E /* Pods_SoundBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037CFF543E50434201B8B6B /* Pods_SoundBoxUITests.framework */; };
+		5D4D6E197918AB623FC6B599 /* Pods_SoundBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D392B8E03C1F23E156AD290B /* Pods_SoundBoxTests.framework */; };
+		8D56B06B5D4FA608F310B834 /* Pods_SoundBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C41460F01438639B7ADB5FB /* Pods_SoundBox.framework */; };
 		ACB25AB51D71CA6C00FDA589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AB41D71CA6C00FDA589 /* AppDelegate.swift */; };
-		ACB25AB71D71CA6C00FDA589 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AB61D71CA6C00FDA589 /* FirstViewController.swift */; };
-		ACB25AB91D71CA6C00FDA589 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AB81D71CA6C00FDA589 /* SecondViewController.swift */; };
 		ACB25ABC1D71CA6C00FDA589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB25ABA1D71CA6C00FDA589 /* Main.storyboard */; };
 		ACB25ABE1D71CA6C00FDA589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACB25ABD1D71CA6C00FDA589 /* Assets.xcassets */; };
 		ACB25AC11D71CA6C00FDA589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB25ABF1D71CA6C00FDA589 /* LaunchScreen.storyboard */; };
 		ACB25ACC1D71CA6C00FDA589 /* SoundBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25ACB1D71CA6C00FDA589 /* SoundBoxTests.swift */; };
 		ACB25AD71D71CA6C00FDA589 /* SoundBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AD61D71CA6C00FDA589 /* SoundBoxUITests.swift */; };
+		ACB25AE51D7441DC00FDA589 /* LocalSoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AE41D7441DC00FDA589 /* LocalSoundTableViewController.swift */; };
+		ACB25B261D756E2500FDA589 /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B241D756E2500FDA589 /* LocalData.xcdatamodeld */; };
+		ACB25B2C1D7675CB00FDA589 /* LocalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B2B1D7675CB00FDA589 /* LocalDataController.swift */; };
+		ACB25B371D76860500FDA589 /* Sound+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B351D76860500FDA589 /* Sound+CoreDataProperties.swift */; };
+		ACB25B381D76860500FDA589 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B361D76860500FDA589 /* Sound.swift */; };
+		ACB25B3C1D769E2500FDA589 /* SoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B3B1D769E2500FDA589 /* SoundTableViewCell.swift */; };
+		ACB25B3E1D76D25900FDA589 /* RemoteSoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B3D1D76D25900FDA589 /* RemoteSoundTableViewController.swift */; };
+		ACB25B4B1D76E2E000FDA589 /* RemoteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */; };
+		ACB25B4D1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */; };
+		ACF7E2731D79C73100046E32 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2721D79C73100046E32 /* CoreTelephony.framework */; };
+		ACF7E2751D79C75200046E32 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2741D79C75200046E32 /* libz.tbd */; };
+		ACF7E2771D79C76100046E32 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2761D79C76100046E32 /* libsqlite3.tbd */; };
+		ACF7E27E1D7C5D8100046E32 /* RemoteSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E27D1D7C5D8100046E32 /* RemoteSound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C41460F01438639B7ADB5FB /* Pods_SoundBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5037CFF543E50434201B8B6B /* Pods_SoundBoxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundBoxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5071EAEFFF688C02BC1A1CAB /* Pods-SoundBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxUITests/Pods-SoundBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		937E930D74A392BDAF87D176 /* Pods-SoundBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBox/Pods-SoundBox.debug.xcconfig"; sourceTree = "<group>"; };
+		AA818CDB02A2620DA3EEC8E6 /* Pods-SoundBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxUITests/Pods-SoundBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACB25AB11D71CA6B00FDA589 /* SoundBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB25AB41D71CA6C00FDA589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACB25AB61D71CA6C00FDA589 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		ACB25AB81D71CA6C00FDA589 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		ACB25ABB1D71CA6C00FDA589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACB25ABD1D71CA6C00FDA589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACB25AC01D71CA6C00FDA589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +66,24 @@
 		ACB25AD21D71CA6C00FDA589 /* SoundBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB25AD61D71CA6C00FDA589 /* SoundBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoxUITests.swift; sourceTree = "<group>"; };
 		ACB25AD81D71CA6C00FDA589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACB25AE41D7441DC00FDA589 /* LocalSoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSoundTableViewController.swift; sourceTree = "<group>"; };
+		ACB25B251D756E2500FDA589 /* LocalData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalData.xcdatamodel; sourceTree = "<group>"; };
+		ACB25B2B1D7675CB00FDA589 /* LocalDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataController.swift; sourceTree = "<group>"; };
+		ACB25B351D76860500FDA589 /* Sound+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sound+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ACB25B361D76860500FDA589 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		ACB25B3B1D769E2500FDA589 /* SoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTableViewCell.swift; sourceTree = "<group>"; };
+		ACB25B3D1D76D25900FDA589 /* RemoteSoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSoundTableViewController.swift; sourceTree = "<group>"; };
+		ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataController.swift; sourceTree = "<group>"; };
+		ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSoundTableViewCell.swift; sourceTree = "<group>"; };
+		ACF7E2721D79C73100046E32 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		ACF7E2741D79C75200046E32 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		ACF7E2761D79C76100046E32 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		ACF7E2781D79C81400046E32 /* SoundBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundBox-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACF7E27D1D7C5D8100046E32 /* RemoteSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSound.swift; sourceTree = "<group>"; };
+		B89DD2531D36F6A835448811 /* Pods-SoundBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxTests/Pods-SoundBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BECD88E3053A185E2A77CBCA /* Pods-SoundBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBox/Pods-SoundBox.release.xcconfig"; sourceTree = "<group>"; };
+		D392B8E03C1F23E156AD290B /* Pods_SoundBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF602163BB3A94C4A8E5B6CC /* Pods-SoundBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxTests/Pods-SoundBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF7E2771D79C76100046E32 /* libsqlite3.tbd in Frameworks */,
+				ACF7E2751D79C75200046E32 /* libz.tbd in Frameworks */,
+				ACF7E2731D79C73100046E32 /* CoreTelephony.framework in Frameworks */,
+				8D56B06B5D4FA608F310B834 /* Pods_SoundBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4D6E197918AB623FC6B599 /* Pods_SoundBoxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +110,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3E2E03898BA9382F31A23E /* Pods_SoundBoxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A272D5D58E388436EC48A1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				937E930D74A392BDAF87D176 /* Pods-SoundBox.debug.xcconfig */,
+				BECD88E3053A185E2A77CBCA /* Pods-SoundBox.release.xcconfig */,
+				B89DD2531D36F6A835448811 /* Pods-SoundBoxTests.debug.xcconfig */,
+				EF602163BB3A94C4A8E5B6CC /* Pods-SoundBoxTests.release.xcconfig */,
+				5071EAEFFF688C02BC1A1CAB /* Pods-SoundBoxUITests.debug.xcconfig */,
+				AA818CDB02A2620DA3EEC8E6 /* Pods-SoundBoxUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B6D892DC8780033F3299E5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C41460F01438639B7ADB5FB /* Pods_SoundBox.framework */,
+				D392B8E03C1F23E156AD290B /* Pods_SoundBoxTests.framework */,
+				5037CFF543E50434201B8B6B /* Pods_SoundBoxUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ACB25AA81D71CA6B00FDA589 = {
 			isa = PBXGroup;
 			children = (
+				ACF7E2761D79C76100046E32 /* libsqlite3.tbd */,
+				ACF7E2741D79C75200046E32 /* libz.tbd */,
+				ACF7E2721D79C73100046E32 /* CoreTelephony.framework */,
 				ACB25AB31D71CA6B00FDA589 /* SoundBox */,
 				ACB25ACA1D71CA6C00FDA589 /* SoundBoxTests */,
 				ACB25AD51D71CA6C00FDA589 /* SoundBoxUITests */,
 				ACB25AB21D71CA6B00FDA589 /* Products */,
+				2A272D5D58E388436EC48A1C /* Pods */,
+				7B6D892DC8780033F3299E5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +168,22 @@
 		ACB25AB31D71CA6B00FDA589 /* SoundBox */ = {
 			isa = PBXGroup;
 			children = (
+				ACF7E27D1D7C5D8100046E32 /* RemoteSound.swift */,
+				ACB25B351D76860500FDA589 /* Sound+CoreDataProperties.swift */,
+				ACB25B361D76860500FDA589 /* Sound.swift */,
 				ACB25AB41D71CA6C00FDA589 /* AppDelegate.swift */,
-				ACB25AB61D71CA6C00FDA589 /* FirstViewController.swift */,
-				ACB25AB81D71CA6C00FDA589 /* SecondViewController.swift */,
 				ACB25ABA1D71CA6C00FDA589 /* Main.storyboard */,
 				ACB25ABD1D71CA6C00FDA589 /* Assets.xcassets */,
 				ACB25ABF1D71CA6C00FDA589 /* LaunchScreen.storyboard */,
 				ACB25AC21D71CA6C00FDA589 /* Info.plist */,
+				ACB25AE41D7441DC00FDA589 /* LocalSoundTableViewController.swift */,
+				ACB25B241D756E2500FDA589 /* LocalData.xcdatamodeld */,
+				ACB25B2B1D7675CB00FDA589 /* LocalDataController.swift */,
+				ACB25B3B1D769E2500FDA589 /* SoundTableViewCell.swift */,
+				ACB25B3D1D76D25900FDA589 /* RemoteSoundTableViewController.swift */,
+				ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */,
+				ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */,
+				ACF7E2781D79C81400046E32 /* SoundBox-Bridging-Header.h */,
 			);
 			path = SoundBox;
 			sourceTree = "<group>";
@@ -135,9 +213,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACB25ADB1D71CA6C00FDA589 /* Build configuration list for PBXNativeTarget "SoundBox" */;
 			buildPhases = (
+				A8AA23EA51F85A3296145168 /* [CP] Check Pods Manifest.lock */,
 				ACB25AAD1D71CA6B00FDA589 /* Sources */,
 				ACB25AAE1D71CA6B00FDA589 /* Frameworks */,
 				ACB25AAF1D71CA6B00FDA589 /* Resources */,
+				ACB25B471D76D53800FDA589 /* ShellScript */,
+				EEB8D471D8E221723B0139CD /* [CP] Embed Pods Frameworks */,
+				B2042BD8F94D44CB422729FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACB25ADE1D71CA6C00FDA589 /* Build configuration list for PBXNativeTarget "SoundBoxTests" */;
 			buildPhases = (
+				BEC4D3387616AC1168D68CF3 /* [CP] Check Pods Manifest.lock */,
 				ACB25AC31D71CA6C00FDA589 /* Sources */,
 				ACB25AC41D71CA6C00FDA589 /* Frameworks */,
 				ACB25AC51D71CA6C00FDA589 /* Resources */,
+				DD6B095A4105FF323B718658 /* [CP] Embed Pods Frameworks */,
+				07790BEFC967FD883F65C6F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACB25AE11D71CA6C00FDA589 /* Build configuration list for PBXNativeTarget "SoundBoxUITests" */;
 			buildPhases = (
+				AA45024FF395E16F52D6FB1A /* [CP] Check Pods Manifest.lock */,
 				ACB25ACE1D71CA6C00FDA589 /* Sources */,
 				ACB25ACF1D71CA6C00FDA589 /* Frameworks */,
 				ACB25AD01D71CA6C00FDA589 /* Resources */,
+				169AD4158DE731CC282106AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,14 +341,160 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07790BEFC967FD883F65C6F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundBoxTests/Pods-SoundBoxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		169AD4158DE731CC282106AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundBoxUITests/Pods-SoundBoxUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8AA23EA51F85A3296145168 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA45024FF395E16F52D6FB1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACB25B471D76D53800FDA589 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		B2042BD8F94D44CB422729FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundBox/Pods-SoundBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEC4D3387616AC1168D68CF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6B095A4105FF323B718658 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundBoxTests/Pods-SoundBoxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEB8D471D8E221723B0139CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundBox/Pods-SoundBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ACB25AAD1D71CA6B00FDA589 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACB25AB91D71CA6C00FDA589 /* SecondViewController.swift in Sources */,
+				ACF7E27E1D7C5D8100046E32 /* RemoteSound.swift in Sources */,
 				ACB25AB51D71CA6C00FDA589 /* AppDelegate.swift in Sources */,
-				ACB25AB71D71CA6C00FDA589 /* FirstViewController.swift in Sources */,
+				ACB25AE51D7441DC00FDA589 /* LocalSoundTableViewController.swift in Sources */,
+				ACB25B2C1D7675CB00FDA589 /* LocalDataController.swift in Sources */,
+				ACB25B3E1D76D25900FDA589 /* RemoteSoundTableViewController.swift in Sources */,
+				ACB25B371D76860500FDA589 /* Sound+CoreDataProperties.swift in Sources */,
+				ACB25B261D756E2500FDA589 /* LocalData.xcdatamodeld in Sources */,
+				ACB25B4D1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift in Sources */,
+				ACB25B381D76860500FDA589 /* Sound.swift in Sources */,
+				ACB25B3C1D769E2500FDA589 /* SoundTableViewCell.swift in Sources */,
+				ACB25B4B1D76E2E000FDA589 /* RemoteDataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +590,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundBox/SoundBox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -395,34 +629,52 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundBox/SoundBox-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		ACB25ADC1D71CA6C00FDA589 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 937E930D74A392BDAF87D176 /* Pods-SoundBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/SoundBox",
+				);
 				INFOPLIST_FILE = SoundBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eyougo.SoundBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		ACB25ADD1D71CA6C00FDA589 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECD88E3053A185E2A77CBCA /* Pods-SoundBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/SoundBox",
+				);
 				INFOPLIST_FILE = SoundBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eyougo.SoundBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		ACB25ADF1D71CA6C00FDA589 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B89DD2531D36F6A835448811 /* Pods-SoundBoxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SoundBoxTests/Info.plist;
@@ -435,6 +687,7 @@
 		};
 		ACB25AE01D71CA6C00FDA589 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF602163BB3A94C4A8E5B6CC /* Pods-SoundBoxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SoundBoxTests/Info.plist;
@@ -447,6 +700,7 @@
 		};
 		ACB25AE21D71CA6C00FDA589 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5071EAEFFF688C02BC1A1CAB /* Pods-SoundBoxUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SoundBoxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -458,6 +712,7 @@
 		};
 		ACB25AE31D71CA6C00FDA589 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA818CDB02A2620DA3EEC8E6 /* Pods-SoundBoxUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SoundBoxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -486,6 +741,7 @@
 				ACB25ADD1D71CA6C00FDA589 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACB25ADE1D71CA6C00FDA589 /* Build configuration list for PBXNativeTarget "SoundBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +750,7 @@
 				ACB25AE01D71CA6C00FDA589 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACB25AE11D71CA6C00FDA589 /* Build configuration list for PBXNativeTarget "SoundBoxUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,8 +759,22 @@
 				ACB25AE31D71CA6C00FDA589 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ACB25B241D756E2500FDA589 /* LocalData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACB25B251D756E2500FDA589 /* LocalData.xcdatamodel */,
+			);
+			currentVersion = ACB25B251D756E2500FDA589 /* LocalData.xcdatamodel */;
+			path = LocalData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ACB25AA91D71CA6B00FDA589 /* Project object */;
 }

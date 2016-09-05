@@ -13,9 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var localDataController: LocalDataController!
+    
+    var remoteDataController: RemoteDataController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        localDataController = LocalDataController()
+        remoteDataController = RemoteDataController()
+        // init UMeng 
+        UMAnalyticsConfig.sharedInstance().appKey = "57cad4b667e58e65890009fe"
+        MobClick.startWithConfigure(UMAnalyticsConfig.sharedInstance())
         return true
     }
 

@@ -1,0 +1,37 @@
+//
+//  RemoteSound.swift
+//  SoundBox
+//
+//  Created by Mei on 8/31/16.
+//  Copyright © 2016 Mei. All rights reserved.
+//
+
+import Foundation
+import SwiftyJSON
+
+class RemoteSound{
+    var id:Int
+    var name:String?
+    var description:String?
+    var url:String?
+    var createdAt:NSDate
+    var updatedAt:NSDate
+
+    init?(data : JSON?) {
+        if let data = data {
+            if let id = data["id"].int {
+                let dateFormatter = NSDateFormatter()
+                self.id = id
+                self.name = data["name"].string
+                self.url = data["url"].string
+                self.description = data["description"].string
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                self.createdAt = dateFormatter.dateFromString(data["createdAt"].string!)!
+                self.updatedAt = dateFormatter.dateFromString(data["updatedAt"].string!)!
+                return
+            }
+        }
+        return nil
+    }
+
+}
