@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // init UMeng 
         UMAnalyticsConfig.sharedInstance().appKey = "57cad4b667e58e65890009fe"
         MobClick.startWithConfigure(UMAnalyticsConfig.sharedInstance())
+        application.applicationSupportsShakeToEdit = true
+        AVOSCloud.setApplicationId("vbAv6LBjLUrmlHy6eJjEgGkM-gzGzoHsz", clientKey: "k9r8htIIFmst8H8wdXj1L4VI")
+        
         return true
     }
 

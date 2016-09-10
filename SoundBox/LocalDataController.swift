@@ -91,12 +91,14 @@ class LocalDataController: NSObject {
     }
     
     func deleteSound(sound: Sound) {
-        let fileManager = NSFileManager.defaultManager()
-        if let filePath = sound.file {
-            let exist = fileManager.fileExistsAtPath(filePath)
-            print("\(filePath) ====== \(exist)")
+        if let file = sound.file {
+            let fileManager = NSFileManager.defaultManager()
+            let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            let fileUrl = directoryURL.URLByAppendingPathComponent(file)
+            let exist = fileManager.fileExistsAtPath(fileUrl.absoluteString)
+            print("\(fileUrl) ====== \(exist)")
             if exist {
-                try! fileManager.removeItemAtPath(filePath)
+                try! fileManager.removeItemAtURL(fileUrl)
             }
         }
         

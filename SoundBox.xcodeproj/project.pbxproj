@@ -10,6 +10,11 @@
 		4D3E2E03898BA9382F31A23E /* Pods_SoundBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037CFF543E50434201B8B6B /* Pods_SoundBoxUITests.framework */; };
 		5D4D6E197918AB623FC6B599 /* Pods_SoundBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D392B8E03C1F23E156AD290B /* Pods_SoundBoxTests.framework */; };
 		8D56B06B5D4FA608F310B834 /* Pods_SoundBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C41460F01438639B7ADB5FB /* Pods_SoundBox.framework */; };
+		AC9474171D82862400416314 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9474161D82862400416314 /* libc++.tbd */; };
+		AC9474191D82863900416314 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9474181D82863900416314 /* libicucore.tbd */; };
+		AC94741B1D82864900416314 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC94741A1D82864900416314 /* SystemConfiguration.framework */; };
+		AC94741D1D82865A00416314 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC94741C1D82865A00416314 /* MobileCoreServices.framework */; };
+		AC94741F1D82866600416314 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC94741E1D82866600416314 /* CoreLocation.framework */; };
 		ACB25AB51D71CA6C00FDA589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25AB41D71CA6C00FDA589 /* AppDelegate.swift */; };
 		ACB25ABC1D71CA6C00FDA589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB25ABA1D71CA6C00FDA589 /* Main.storyboard */; };
 		ACB25ABE1D71CA6C00FDA589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACB25ABD1D71CA6C00FDA589 /* Assets.xcassets */; };
@@ -25,6 +30,8 @@
 		ACB25B3E1D76D25900FDA589 /* RemoteSoundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B3D1D76D25900FDA589 /* RemoteSoundTableViewController.swift */; };
 		ACB25B4B1D76E2E000FDA589 /* RemoteDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */; };
 		ACB25B4D1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */; };
+		ACBC5A8B1D7ED87300859BCC /* LocalSoundDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC5A8A1D7ED87300859BCC /* LocalSoundDetailTableViewController.swift */; };
+		ACBC5A8D1D8171A400859BCC /* AboutMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC5A8C1D8171A400859BCC /* AboutMoreTableViewController.swift */; };
 		ACF7E2731D79C73100046E32 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2721D79C73100046E32 /* CoreTelephony.framework */; };
 		ACF7E2751D79C75200046E32 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2741D79C75200046E32 /* libz.tbd */; };
 		ACF7E2771D79C76100046E32 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF7E2761D79C76100046E32 /* libsqlite3.tbd */; };
@@ -54,6 +61,11 @@
 		5071EAEFFF688C02BC1A1CAB /* Pods-SoundBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxUITests/Pods-SoundBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		937E930D74A392BDAF87D176 /* Pods-SoundBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBox/Pods-SoundBox.debug.xcconfig"; sourceTree = "<group>"; };
 		AA818CDB02A2620DA3EEC8E6 /* Pods-SoundBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundBoxUITests/Pods-SoundBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AC9474161D82862400416314 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AC9474181D82863900416314 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		AC94741A1D82864900416314 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC94741C1D82865A00416314 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AC94741E1D82866600416314 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ACB25AB11D71CA6B00FDA589 /* SoundBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB25AB41D71CA6C00FDA589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACB25ABB1D71CA6C00FDA589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +87,8 @@
 		ACB25B3D1D76D25900FDA589 /* RemoteSoundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSoundTableViewController.swift; sourceTree = "<group>"; };
 		ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataController.swift; sourceTree = "<group>"; };
 		ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteSoundTableViewCell.swift; sourceTree = "<group>"; };
+		ACBC5A8A1D7ED87300859BCC /* LocalSoundDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSoundDetailTableViewController.swift; sourceTree = "<group>"; };
+		ACBC5A8C1D8171A400859BCC /* AboutMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMoreTableViewController.swift; sourceTree = "<group>"; };
 		ACF7E2721D79C73100046E32 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		ACF7E2741D79C75200046E32 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ACF7E2761D79C76100046E32 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -91,6 +105,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC94741F1D82866600416314 /* CoreLocation.framework in Frameworks */,
+				AC94741D1D82865A00416314 /* MobileCoreServices.framework in Frameworks */,
+				AC94741B1D82864900416314 /* SystemConfiguration.framework in Frameworks */,
+				AC9474191D82863900416314 /* libicucore.tbd in Frameworks */,
+				AC9474171D82862400416314 /* libc++.tbd in Frameworks */,
 				ACF7E2771D79C76100046E32 /* libsqlite3.tbd in Frameworks */,
 				ACF7E2751D79C75200046E32 /* libz.tbd in Frameworks */,
 				ACF7E2731D79C73100046E32 /* CoreTelephony.framework in Frameworks */,
@@ -133,6 +152,11 @@
 		7B6D892DC8780033F3299E5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC94741E1D82866600416314 /* CoreLocation.framework */,
+				AC94741C1D82865A00416314 /* MobileCoreServices.framework */,
+				AC94741A1D82864900416314 /* SystemConfiguration.framework */,
+				AC9474181D82863900416314 /* libicucore.tbd */,
+				AC9474161D82862400416314 /* libc++.tbd */,
 				1C41460F01438639B7ADB5FB /* Pods_SoundBox.framework */,
 				D392B8E03C1F23E156AD290B /* Pods_SoundBoxTests.framework */,
 				5037CFF543E50434201B8B6B /* Pods_SoundBoxUITests.framework */,
@@ -184,6 +208,8 @@
 				ACB25B4A1D76E2E000FDA589 /* RemoteDataController.swift */,
 				ACB25B4C1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift */,
 				ACF7E2781D79C81400046E32 /* SoundBox-Bridging-Header.h */,
+				ACBC5A8A1D7ED87300859BCC /* LocalSoundDetailTableViewController.swift */,
+				ACBC5A8C1D8171A400859BCC /* AboutMoreTableViewController.swift */,
 			);
 			path = SoundBox;
 			sourceTree = "<group>";
@@ -472,12 +498,14 @@
 				ACB25AB51D71CA6C00FDA589 /* AppDelegate.swift in Sources */,
 				ACB25AE51D7441DC00FDA589 /* LocalSoundTableViewController.swift in Sources */,
 				ACB25B2C1D7675CB00FDA589 /* LocalDataController.swift in Sources */,
+				ACBC5A8D1D8171A400859BCC /* AboutMoreTableViewController.swift in Sources */,
 				ACB25B3E1D76D25900FDA589 /* RemoteSoundTableViewController.swift in Sources */,
 				ACB25B371D76860500FDA589 /* Sound+CoreDataProperties.swift in Sources */,
 				ACB25B261D756E2500FDA589 /* LocalData.xcdatamodeld in Sources */,
 				ACB25B4D1D76EA3E00FDA589 /* RemoteSoundTableViewCell.swift in Sources */,
 				ACB25B381D76860500FDA589 /* Sound.swift in Sources */,
 				ACB25B3C1D769E2500FDA589 /* SoundTableViewCell.swift in Sources */,
+				ACBC5A8B1D7ED87300859BCC /* LocalSoundDetailTableViewController.swift in Sources */,
 				ACB25B4B1D76E2E000FDA589 /* RemoteDataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

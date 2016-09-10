@@ -13,3 +13,4 @@
 #endif /* SoundBox_Bridging_Header_h */
 
 #import "UMMobClick/MobClick.h"
+#import "LeanCloudFeedbackDynamic/LeanCloudFeedback.h"

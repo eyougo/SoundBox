@@ -20,6 +20,7 @@ class RemoteSoundTableViewCell: UITableViewCell {
     @IBOutlet weak var descLabel: UILabel!
 
     @IBAction func DownloadAction(sender: UIButton) {
+        MobClick.event("DownloadRemote")
         downloadAction?(self)
     }
     

@@ -15,7 +15,7 @@ class RemoteDataController {
     
     let manager: Manager
     
-    let ApiRoot = "http://127.0.0.1:8080/soundbox"
+    let ApiRoot = "http://127.0.0.1:8082/soundbox"
     
     init(){
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -85,11 +85,9 @@ class RemoteDataController {
                     return desination
                 }.response { _, _, _, error in
                     if let error = error {
-                        print(error.localizedDescription)
-                        finished(success: false, message: error.localizedDescription, remoteSound, file: desination.path)
+                        finished(success: false, message: error.localizedDescription, remoteSound, file: pathComponent)
                     } else {
-                        print("download success")
-                        finished(success: true, message: nil, remoteSound, file: desination.path)
+                        finished(success: true, message: nil, remoteSound, file: pathComponent)
                     }
                 }
         }

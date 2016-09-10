@@ -7,7 +7,8 @@ target 'SoundBox' do
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
   pod 'UMengAnalytics'
-  # Pods for SoundBox
+  pod 'LeanCloudFeedbackDynamic'
+# Pods for SoundBox
 
   target 'SoundBoxTests' do
     inherit! :search_paths

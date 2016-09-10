@@ -34,6 +34,7 @@ class RemoteSoundTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if self.remoteSounds.count == 0 {
             loadData()
         }
@@ -41,6 +42,7 @@ class RemoteSoundTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         MobClick.endLogPageView("RemoteSoundTableView")
     }
     
@@ -147,9 +149,9 @@ class RemoteSoundTableViewController: UITableViewController {
         if let url = remoteSound.url {
             let fileURL = NSURL(string: url)
             let item = AVPlayerItem(URL: fileURL!)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(itemPlayEndOrFail), name: AVPlayerItemDidPlayToEndTimeNotification, object: item)
             soundPlayer.replaceCurrentItemWithPlayerItem(item)
             soundPlayer.play()
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(itemPlayEndOrFail), name: AVPlayerItemDidPlayToEndTimeNotification, object: item)
         }
     }
     

@@ -50,6 +50,7 @@ class LocalSoundTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         MobClick.endLogPageView("LocalSoundTableView")
     }
     
@@ -118,14 +119,7 @@ class LocalSoundTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.soundPlayer.pause()
-        let sound = sounds[indexPath.section][indexPath.row]
-        if let filePath = sound.file {
-            let fileURL = NSURL.fileURLWithPath(filePath)
-            let item = AVPlayerItem(URL: fileURL)
-            soundPlayer.replaceCurrentItemWithPlayerItem(item)
-            soundPlayer.play()
-        }
+        
     }
     
     // Override to support conditional editing of the table view.
@@ -165,14 +159,26 @@ class LocalSoundTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "LocalSoundDetail" {
+            let localSoundDetailTableViewController = segue.destinationViewController as! LocalSoundDetailTableViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedSoundCell = sender as? SoundTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedSoundCell)!
+                let selectedSound = self.sounds[indexPath.section][indexPath.row]
+                localSoundDetailTableViewController.sound = selectedSound
+            }
+        
+        }
+        
     }
-    */
+    
 
 }
