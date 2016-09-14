@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LeanCloudFeedbackDynamic
+import LeanCloudFeedback
 
 class AboutMoreTableViewController: UITableViewController {
 

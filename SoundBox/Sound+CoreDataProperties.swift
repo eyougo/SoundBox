@@ -13,11 +13,11 @@ import Foundation
 import CoreData
 
 extension Sound {
-
-    @NSManaged var id: NSNumber?
-    @NSManaged var name: String?
-    @NSManaged var desc: String?
-    @NSManaged var shake: NSNumber?
-    @NSManaged var file: String?
-
+	
+	@NSManaged var id: NSNumber?
+	@NSManaged var name: String?
+	@NSManaged var desc: String?
+	@NSManaged var shake: NSNumber?
+	@NSManaged var file: String?
+	
 }

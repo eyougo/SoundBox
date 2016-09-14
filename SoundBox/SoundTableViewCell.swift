@@ -9,32 +9,31 @@
 import UIKit
 
 class SoundTableViewCell: UITableViewCell {
-
-    
-    var sound: Sound?{
-        didSet{
-            updateUI()
-        }
-    }
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBOutlet weak var descLabel: UILabel!
-    
-    func updateUI() {
-        self.nameLabel.text = sound?.name
-        self.descLabel.text = sound?.desc
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+	
+	var sound: Sound? {
+		didSet {
+			updateUI()
+		}
+	}
+	
+	@IBOutlet weak var nameLabel: UILabel!
+	
+	@IBOutlet weak var descLabel: UILabel!
+	
+	func updateUI() {
+		self.nameLabel.text = sound?.name
+		self.descLabel.text = sound?.desc
+	}
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		// Initialization code
+	}
+	
+	override func setSelected(selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+		
+		// Configure the view for the selected state
+	}
+	
 }

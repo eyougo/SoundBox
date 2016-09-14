@@ -35,9 +35,6 @@ class RemoteSoundTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if self.remoteSounds.count == 0 {
-            loadData()
-        }
         MobClick.beginLogPageView("RemoteSoundTableView")
     }
     
@@ -46,9 +43,12 @@ class RemoteSoundTableViewController: UITableViewController {
         MobClick.endLogPageView("RemoteSoundTableView")
     }
     
-    func loadData(){
+    @IBAction func refreshAction(sender: UIRefreshControl?) {
+        if sender != nil {
+            self.nextStart = 0
+        }
         let remoteDataController = appDelegate.remoteDataController
-        remoteDataController.fetchSounds(nextStart, limit: 10){
+        remoteDataController.fetchSounds(nextStart, limit: 12){
             (success, message, remoteSounds:[RemoteSound], nextStart) in
             if (success){
                 if remoteSounds.count > 0 {
@@ -60,19 +60,39 @@ class RemoteSoundTableViewController: UITableViewController {
                             self.remoteSounds[0].append(remoteSound)
                         }
                     }
-                    self.tableView.reloadData()
+                } else {
+                    if self.remoteSounds.count == 0 || self.remoteSounds[0].count > 0 {
+                        if let view = self.tableView.backgroundView {
+                            let label = view as! UILabel
+                            label.text = "暂时无法获取到数据，请稍候下拉刷新"
+                        }
+                    } else {
+                        
+                    }
                 }
-                
                 self.nextStart = nextStart
+                self.tableView.reloadData()
             }else{
                 if let view = self.tableView.backgroundView {
                     let label = view as! UILabel
                     label.text = message
                 } else {
-                
-                
+                    
                 }
             }
+            sender?.endRefreshing()
+        }
+    }
+    
+    
+    func loadData(){
+        if self.nextStart == 0 {
+            if refreshControl != nil{
+                refreshControl?.beginRefreshing()
+            }
+            refreshAction(refreshControl)
+        } else {
+            refreshAction(nil)
         }
     }
 
@@ -114,6 +134,10 @@ class RemoteSoundTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("RemoteSoundCell", forIndexPath: indexPath) as! RemoteSoundTableViewCell
         
         cell.remoteSound = remoteSounds[indexPath.section][indexPath.row]
+        
+        if (self.nextStart > 0 && indexPath.row == self.remoteSounds[indexPath.section].count-1) {
+            loadData()
+        }
         
         let remoteDataController = appDelegate.remoteDataController
         let localDataController = appDelegate.localDataController

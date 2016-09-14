@@ -15,7 +15,7 @@ class RemoteDataController {
     
     let manager: Manager
     
-    let ApiRoot = "http://127.0.0.1:8082/soundbox"
+    let ApiRoot = "http://soundbox.eyougo.com/"
     
     init(){
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()

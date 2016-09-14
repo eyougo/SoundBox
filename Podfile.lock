@@ -1,24 +1,18 @@
 PODS:
   - Alamofire (3.4.2)
-  - AVOSCloudDynamic (3.3.5)
-  - LeanCloudFeedbackDynamic (0.1.1):
-    - AVOSCloudDynamic
   - SwiftyJSON (2.3.2)
   - UMengAnalytics (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
-  - LeanCloudFeedbackDynamic
   - SwiftyJSON
   - UMengAnalytics
 
 SPEC CHECKSUMS:
   Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
-  AVOSCloudDynamic: 82df67e1c48c00dfbe7b7d8c61b4634c597b8aba
-  LeanCloudFeedbackDynamic: e839bb9238cafd6a6efc4448b526ca90f2e4175b
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UMengAnalytics: 19b28253793d77dff10fb7d502faad1fb6b8ce4a
 
-PODFILE CHECKSUM: 2563bd6ae75116582eaa4337480efa30fc883e1f
+PODFILE CHECKSUM: 0e63e1a5e814aba4c18f053894b03396bba22095
 
 COCOAPODS: 1.0.1

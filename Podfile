@@ -7,7 +7,6 @@ target 'SoundBox' do
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
   pod 'UMengAnalytics'
-  pod 'LeanCloudFeedbackDynamic'
 # Pods for SoundBox
 
   target 'SoundBoxTests' do
