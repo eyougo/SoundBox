@@ -31,6 +31,10 @@ class RemoteSoundTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadData()
+        let compare = UIDevice.current.systemVersion.compare("10.0.0", options: .numeric)
+        if compare != .orderedAscending {
+            self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+        }
         self.soundPlayer.addObserver(self, forKeyPath: "rate", options: [.new, .old], context: nil)
         self.soundPlayer.addObserver(self, forKeyPath: "status", options: [.new, .old], context: nil)
         self.soundPlayer.addObserver(self, forKeyPath: "currentItem", options: [.new, .old], context: nil)
@@ -244,6 +248,11 @@ class RemoteSoundTableViewController: UITableViewController {
             print("currentItem changed: \(change)")
         case "rate":
             print("rate changed: \(change)")
+            if change?[.oldKey] as? Float == 1.0 && change?[.newKey] as? Float == 0.0{
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    self.tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
         default:
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
