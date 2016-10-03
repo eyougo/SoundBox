@@ -22,18 +22,18 @@ class AboutMoreTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        let infoDictionary = NSBundle.mainBundle().infoDictionary
+        let infoDictionary = Bundle.main.infoDictionary
         let majorVersion = infoDictionary! ["CFBundleShortVersionString"] as! String
         let minorVersion = infoDictionary! ["CFBundleVersion"] as! String
         versionLabel.text = majorVersion + " (" + minorVersion + ")"
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         MobClick.beginLogPageView("AboutMoreTableView")
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         MobClick.endLogPageView("AboutMoreTableView")
     }
@@ -43,8 +43,8 @@ class AboutMoreTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
             if let identifier = cell.reuseIdentifier {
                 switch identifier {
                 case "FeedbackCell":

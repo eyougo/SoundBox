@@ -14,20 +14,20 @@ class RemoteSound{
     var name:String?
     var description:String?
     var url:String?
-    var createdAt:NSDate
-    var updatedAt:NSDate
+    var createdAt:Date
+    var updatedAt:Date
 
     init?(data : JSON?) {
         if let data = data {
             if let id = data["id"].int {
-                let dateFormatter = NSDateFormatter()
+                let dateFormatter = DateFormatter()
                 self.id = id
                 self.name = data["name"].string
                 self.url = data["url"].string
                 self.description = data["description"].string
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-                self.createdAt = dateFormatter.dateFromString(data["createdAt"].string!)!
-                self.updatedAt = dateFormatter.dateFromString(data["updatedAt"].string!)!
+                self.createdAt = dateFormatter.date(from: data["createdAt"].string!)!
+                self.updatedAt = dateFormatter.date(from: data["updatedAt"].string!)!
                 return
             }
         }

@@ -13,17 +13,17 @@ import SwiftyJSON
 
 class RemoteDataController {
     
-    let manager: Manager
+    let manager: SessionManager
     
     let ApiRoot = "http://soundbox.eyougo.com/"
     
     init(){
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 10 // seconds
-        manager = Alamofire.Manager(configuration: configuration)
+        manager = Alamofire.SessionManager(configuration: configuration)
     }
     
-    func fetchSounds(offset:Int, limit:Int, finished: (success:Bool, message:String?, [RemoteSound], nextStart: Int) -> Void) {
+    func fetchSounds(_ offset:Int, limit:Int, finished: @escaping (_ success:Bool, _ message:String?, [RemoteSound], _ nextStart: Int) -> Void) {
         
         var remoteSounds = [RemoteSound]()
         
@@ -31,16 +31,16 @@ class RemoteDataController {
             "Accept": "application/json"
         ]
         
-        manager.request(.GET, ApiRoot + "/sounds?offset=\(offset)&limit=\(limit)", headers: headers, encoding: .JSON)
+        manager.request(ApiRoot + "/sounds?offset=\(offset)&limit=\(limit)", headers: headers)
             .responseJSON{ response in
                 if let error = response.result.error {
                     print(error.localizedDescription)
-                    finished(success: false, message: "服务器错误，请稍候重试", remoteSounds, nextStart:-1)
+                    finished(false, "服务器错误，请稍候重试", remoteSounds, -1)
                     
                     return
                 }
                 guard let data = response.result.value else {
-                    finished(success: false, message: "服务器未知错误，请稍候重试", remoteSounds, nextStart:-1)
+                    finished(false, "服务器未知错误，请稍候重试", remoteSounds, -1)
                     return
                 }
                 
@@ -57,37 +57,38 @@ class RemoteDataController {
                                 }
                             }
                         }
-                        finished(success: true, message: "", remoteSounds, nextStart:nextStart)
+                        finished(true, "", remoteSounds, nextStart)
                     default:
                         let message = json["message"].string!
-                        finished(success: false, message: message, remoteSounds, nextStart:-1)
+                        finished(false, message, remoteSounds, -1)
                     }
                 }
         }
     }
     
-    func downloadSound(remoteSound: RemoteSound, finished: (success:Bool, message:String?, RemoteSound, file: String?) -> Void){
+    func downloadSound(_ remoteSound: RemoteSound, finished: @escaping (_ success:Bool, _ message:String?, RemoteSound, _ file: String?) -> Void){
         
         if let url = remoteSound.url {
-            let fileManager = NSFileManager.defaultManager()
-            let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            let fileManager = FileManager.default
+            let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
             var pathComponent = String(remoteSound.id)
             
-            let components = url.componentsSeparatedByString(".")
+            let components = url.components(separatedBy: ".")
             if components.count > 1 {
                 let suffix = components[components.count-1]
                 pathComponent = String(remoteSound.id) + "." + suffix
             }
             
-            let desination = directoryURL.URLByAppendingPathComponent(pathComponent)
+            let desination = directoryURL.appendingPathComponent(pathComponent)
             
-            manager.download(.GET, url) { temporaryURL, response in
-                    return desination
-                }.response { _, _, _, error in
-                    if let error = error {
-                        finished(success: false, message: error.localizedDescription, remoteSound, file: pathComponent)
+            manager.download(url) { _, _ in
+                return (desination, [.removePreviousFile, .createIntermediateDirectories])
+                }.response{ response in
+                    if let error = response.error {
+                        debugPrint(response)
+                        finished(false, error.localizedDescription, remoteSound, pathComponent)
                     } else {
-                        finished(success: true, message: nil, remoteSound, file: pathComponent)
+                        finished(true, nil, remoteSound, pathComponent)
                     }
                 }
         }

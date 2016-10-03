@@ -19,7 +19,7 @@ class RemoteSoundTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
 
-    @IBAction func DownloadAction(sender: UIButton) {
+    @IBAction func DownloadAction(_ sender: UIButton) {
         MobClick.event("DownloadRemote")
         downloadAction?(self)
     }
@@ -36,7 +36,7 @@ class RemoteSoundTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

@@ -1,18 +1,18 @@
 PODS:
-  - Alamofire (3.4.2)
-  - SwiftyJSON (2.3.2)
+  - Alamofire (4.0.1)
+  - SwiftyJSON (3.1.0)
   - UMengAnalytics (4.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
+  - Alamofire (~> 4.0)
   - SwiftyJSON
   - UMengAnalytics
 
 SPEC CHECKSUMS:
-  Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   UMengAnalytics: 19b28253793d77dff10fb7d502faad1fb6b8ce4a
 
-PODFILE CHECKSUM: 0e63e1a5e814aba4c18f053894b03396bba22095
+PODFILE CHECKSUM: eed6444cc855be71d25e3aff86a5791b3c605ccd
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

@@ -13,69 +13,69 @@ class LocalDataController: NSObject {
 	
 	override init() {
 		// This resource is the same name as your xcdatamodeld contained in your project.
-		guard let modelURL = NSBundle.mainBundle().URLForResource("LocalData", withExtension: "momd") else {
+		guard let modelURL = Bundle.main.url(forResource: "LocalData", withExtension: "momd") else {
 			fatalError("Error loading model from bundle")
 		}
 		// The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
-		guard let mom = NSManagedObjectModel(contentsOfURL: modelURL) else {
+		guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
 			fatalError("Error initializing mom from: \(modelURL)")
 		}
 		
 		let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
-		managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+		managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 		managedObjectContext.persistentStoreCoordinator = psc
 		
-		let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		let docURL = urls[urls.endIndex - 1]
 		/* The directory the application uses to store the Core Data store file.
 		 */
-		let storeURL = docURL.URLByAppendingPathComponent("LocalData.sqlite")
+		let storeURL = docURL.appendingPathComponent("LocalData.sqlite")
 		do {
-			try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+			try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
 		} catch {
 			fatalError("Error migrating store: \(error)")
 		}
 	}
 	
 	func fetchLocalSoundCount() -> Int {
-		let soundsFetch = NSFetchRequest(entityName: "Sound")
-		soundsFetch.resultType = .CountResultType
+		let soundsFetch: NSFetchRequest<Sound> = Sound.fetchRequest()
+		soundsFetch.resultType = .countResultType
 		do {
-			let counts = try managedObjectContext.executeFetchRequest(soundsFetch) as! [NSNumber]
-			return counts[0].integerValue
+			let count = try managedObjectContext.count(for: soundsFetch)
+            return count
 		} catch {
 			fatalError("Failed to fetch sounds: \(error)")
 		}
 	}
 	
-	func fetchLocalSounds(offset: Int, limit: Int) -> [Sound] {
-		let soundsFetch = NSFetchRequest(entityName: "Sound")
-		soundsFetch.fetchOffset = offset
+	func fetchLocalSounds(_ offset: Int, limit: Int) -> [Sound] {
+		let soundsFetch: NSFetchRequest<Sound> = Sound.fetchRequest()
+        soundsFetch.fetchOffset = offset
 		soundsFetch.fetchLimit = limit
 		do {
-			let sounds = try managedObjectContext.executeFetchRequest(soundsFetch) as! [Sound]
+			let sounds = try managedObjectContext.fetch(soundsFetch)
 			return sounds
 		} catch {
 			fatalError("Failed to fetch sounds: \(error)")
 		}
 	}
 	
-	func saveRemoteSound(remoteSound: RemoteSound, file: String) -> Bool {
-		let soundsFetch = NSFetchRequest(entityName: "Sound")
+	func saveRemoteSound(_ remoteSound: RemoteSound, file: String) -> Bool {
+		let soundsFetch: NSFetchRequest<Sound> = Sound.fetchRequest()
 		let predicate = NSPredicate(format: "id == %d", remoteSound.id)
 		soundsFetch.predicate = predicate
 		do {
-			let sounds = try managedObjectContext.executeFetchRequest(soundsFetch) as! [Sound]
-			if sounds.count > 0 {
+			let sounds = try managedObjectContext.fetch(soundsFetch)
+            if sounds.count > 0 {
 				return false
 			}
 		} catch {
 			fatalError("Failed to fetch sounds: \(error)")
 		}
 		
-		let sound = NSEntityDescription.insertNewObjectForEntityForName("Sound", inManagedObjectContext: self.managedObjectContext) as! Sound
+		let sound = NSEntityDescription.insertNewObject(forEntityName: "Sound", into: self.managedObjectContext) as! Sound
 		
-		sound.id = remoteSound.id
+		sound.id = remoteSound.id as NSNumber?
 		sound.name = remoteSound.name
 		sound.desc = remoteSound.description
 		sound.file = file
@@ -88,19 +88,19 @@ class LocalDataController: NSObject {
 		return true
 	}
 	
-	func deleteSound(sound: Sound) {
+	func deleteSound(_ sound: Sound) {
 		if let file = sound.file {
-			let fileManager = NSFileManager.defaultManager()
-			let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-			let fileUrl = directoryURL.URLByAppendingPathComponent(file)
-			let exist = fileManager.fileExistsAtPath(fileUrl.absoluteString)
+			let fileManager = FileManager.default
+			let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+			let fileUrl = directoryURL.appendingPathComponent(file)
+			let exist = fileManager.fileExists(atPath: fileUrl.absoluteString)
 			print("\(fileUrl) ====== \(exist)")
 			if exist {
-				try! fileManager.removeItemAtURL(fileUrl)
+				try! fileManager.removeItem(at: fileUrl)
 			}
 		}
 		
-		managedObjectContext.deleteObject(sound)
+		managedObjectContext.delete(sound)
 		do {
 			try managedObjectContext.save()
 		} catch {

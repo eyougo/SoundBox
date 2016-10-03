@@ -23,21 +23,21 @@ class LocalSoundDetailTableViewController: UITableViewController {
 	
 	@IBOutlet weak var shakeSwitch: UISwitch!
 	
-	@IBAction func playSwitchAction(sender: UISwitch) {
-		if sender.on {
+	@IBAction func playSwitchAction(_ sender: UISwitch) {
+		if sender.isOn {
 			MobClick.event("PlaySound")
 			play()
 		} else {
 			self.soundPlayer.pause()
 		}
 	}
-	@IBAction func shakeSwitchAction(sender: UISwitch) {
-		if sender.on {
+	@IBAction func shakeSwitchAction(_ sender: UISwitch) {
+		if sender.isOn {
 			MobClick.event("SetShakePlay")
-			let alertController = UIAlertController(title: "设置成功", message: "请点击“好的”之后摇动手机播放", preferredStyle: .Alert)
-			let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.Default, handler: nil)
+			let alertController = UIAlertController(title: "设置成功", message: "请点击“好的”之后摇动手机播放", preferredStyle: .alert)
+			let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil)
 			alertController.addAction(okAction)
-			self.presentViewController(alertController, animated: true, completion: nil)
+			self.present(alertController, animated: true, completion: nil)
 			self.becomeFirstResponder()
 		}
 	}
@@ -45,33 +45,33 @@ class LocalSoundDetailTableViewController: UITableViewController {
 	func play() {
 		self.soundPlayer.pause()
 		if let file = self.sound?.file {
-			let fileManager = NSFileManager.defaultManager()
-			let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-			let fileURL = directoryURL.URLByAppendingPathComponent(file)
-			let item = AVPlayerItem(URL: fileURL)
-			soundPlayer.replaceCurrentItemWithPlayerItem(item)
+			let fileManager = FileManager.default
+			let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+			let fileURL = directoryURL.appendingPathComponent(file)
+			let item = AVPlayerItem(url: fileURL)
+			soundPlayer.replaceCurrentItem(with: item)
 			soundPlayer.play()
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(itemPlayEndOrFail), name: AVPlayerItemDidPlayToEndTimeNotification, object: item)
+			NotificationCenter.default.addObserver(self, selector: #selector(itemPlayEndOrFail), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
 		}
 	}
 	
-	func itemPlayEndOrFail(notification: NSNotification) {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-		if self.cycleSwitch.on {
-			if self.playSwitch.on || self.shakeSwitch.on {
-				self.soundPlayer.seekToTime(kCMTimeZero)
+	func itemPlayEndOrFail(_ notification: Notification) {
+		NotificationCenter.default.removeObserver(self)
+		if self.cycleSwitch.isOn {
+			if self.playSwitch.isOn || self.shakeSwitch.isOn {
+				self.soundPlayer.seek(to: kCMTimeZero)
 				self.soundPlayer.play()
-				NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(itemPlayEndOrFail), name: AVPlayerItemDidPlayToEndTimeNotification, object: self.soundPlayer.currentItem)
+				NotificationCenter.default.addObserver(self, selector: #selector(itemPlayEndOrFail), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.soundPlayer.currentItem)
 			}
 		} else {
-			if self.playSwitch.on {
+			if self.playSwitch.isOn {
 				self.playSwitch.setOn(false, animated: true)
 			}
 		}
 	}
 	
-	override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-		if motion == .MotionShake && shakeSwitch.on {
+	override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+		if motion == .motionShake && shakeSwitch.isOn {
 			play()
 		}
 	}
@@ -92,12 +92,14 @@ class LocalSoundDetailTableViewController: UITableViewController {
 		}
 	}
 	
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
+	override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        soundPlayer.pause()
+        soundPlayer.replaceCurrentItem(with: nil)
 		MobClick.beginLogPageView("LocalSoundDetailTableView")
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		MobClick.endLogPageView("LocalSoundDetailTableView")
 	}
@@ -118,6 +120,6 @@ class LocalSoundDetailTableViewController: UITableViewController {
 	 */
 	
 	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		NotificationCenter.default.removeObserver(self)
 	}
 }

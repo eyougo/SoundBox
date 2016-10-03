@@ -13,6 +13,9 @@ import Foundation
 import CoreData
 
 extension Sound {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<Sound> {
+        return NSFetchRequest<Sound>(entityName: "Sound");
+    }
 	
 	@NSManaged var id: NSNumber?
 	@NSManaged var name: String?

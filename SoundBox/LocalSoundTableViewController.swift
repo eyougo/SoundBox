@@ -11,15 +11,13 @@ import AVFoundation
 
 class LocalSoundTableViewController: UITableViewController {
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	var sounds = [[Sound]]()
 	
 	var count = 0
 	
 	var nextStart = 0
-	
-	var soundPlayer = AVPlayer ()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,7 +35,7 @@ class LocalSoundTableViewController: UITableViewController {
 		loadData()
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.count = appDelegate.localDataController.fetchLocalSoundCount()
 		if self.sounds[0].count != self.count {
@@ -49,27 +47,28 @@ class LocalSoundTableViewController: UITableViewController {
 		MobClick.beginLogPageView("LocalSoundTableView")
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		MobClick.endLogPageView("LocalSoundTableView")
 	}
 	
 	func loadData() {
-		let localDataController = appDelegate.localDataController
-		let sounds = localDataController.fetchLocalSounds(nextStart, limit: 10)
-		if nextStart == 0 {
-			self.sounds.removeAll()
-			self.sounds.insert(sounds, atIndex: 0)
-		} else if nextStart > 0 {
-			for sound in sounds {
-				self.sounds[0].append(sound)
-			}
-		}
-		nextStart = nextStart + 10
-		if nextStart >= self.count {
-			nextStart = -1
-		}
-		tableView.reloadData()
+        if let localDataController = appDelegate.localDataController {
+            let sounds = localDataController.fetchLocalSounds(nextStart, limit: 10)
+            if nextStart == 0 {
+                self.sounds.removeAll()
+                self.sounds.insert(sounds, at: 0)
+            } else if nextStart > 0 {
+                for sound in sounds {
+                    self.sounds[0].append(sound)
+                }
+            }
+            nextStart = nextStart + 10
+            if nextStart >= self.count {
+                nextStart = -1
+            }
+            tableView.reloadData()
+        }
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -79,61 +78,61 @@ class LocalSoundTableViewController: UITableViewController {
 	
 	// MARK: - Table view data source
 	
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		// #warning Incomplete implementation, return the number of sections
 		if (self.sounds.count > 0 && self.sounds[0].count > 0) {
-			self.tableView.separatorStyle = .SingleLine;
+			self.tableView.separatorStyle = .singleLine;
 			self.tableView.backgroundView = nil;
 		} else {
-			self.tableView.separatorStyle = .None;
+			self.tableView.separatorStyle = .none;
 			let label = UILabel()
 			label.text = "我的声音是空的！\r\n快到模拟大师里去下载声音吧";
 			label.numberOfLines = 2;
-			label.textAlignment = .Center;
-			label.textColor = UIColor.darkGrayColor();
+			label.textAlignment = .center;
+			label.textColor = UIColor.darkGray;
 			self.tableView.backgroundView = label;
 		}
 		return sounds.count;
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// #warning Incomplete implementation, return the number of rows
 		return sounds[section].count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("LocalSoundCell", forIndexPath: indexPath) as! SoundTableViewCell
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "LocalSoundCell", for: indexPath) as! SoundTableViewCell
 		
 		// Configure the cell...
 		
-		cell.sound = self.sounds[indexPath.section][indexPath.row]
+		cell.sound = self.sounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 		
-		if (nextStart >= 0 && indexPath.row == self.sounds[indexPath.section].count - 1) {
+		if (nextStart >= 0 && (indexPath as NSIndexPath).row == self.sounds[(indexPath as NSIndexPath).section].count - 1) {
 			loadData()
 		}
 		
 		return cell
 	}
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 	}
 	
 	// Override to support conditional editing of the table view.
-	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
 		return true
 	}
 	
 	// Override to support editing the table view.
-	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-		if editingStyle == .Delete {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
 			// Delete the row from the data source
-			let sound = self.sounds[indexPath.section][indexPath.row]
+			let sound = self.sounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 			appDelegate.localDataController.deleteSound(sound)
-			self.sounds[indexPath.section].removeAtIndex(indexPath.row)
-			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-		} else if editingStyle == .Insert {
+			self.sounds[(indexPath as NSIndexPath).section].remove(at: (indexPath as NSIndexPath).row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		} else if editingStyle == .insert {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 		}
 	}
@@ -156,16 +155,16 @@ class LocalSoundTableViewController: UITableViewController {
 	// MARK: - Navigation
 	
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Get the new view controller using segue.destinationViewController.
 		// Pass the selected object to the new view controller.
 		if segue.identifier == "LocalSoundDetail" {
-			let localSoundDetailTableViewController = segue.destinationViewController as! LocalSoundDetailTableViewController
+			let localSoundDetailTableViewController = segue.destination as! LocalSoundDetailTableViewController
 			
 			// Get the cell that generated this segue.
 			if let selectedSoundCell = sender as? SoundTableViewCell {
-				let indexPath = tableView.indexPathForCell(selectedSoundCell)!
-				let selectedSound = self.sounds[indexPath.section][indexPath.row]
+				let indexPath = tableView.indexPath(for: selectedSoundCell)!
+				let selectedSound = self.sounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 				localSoundDetailTableViewController.sound = selectedSound
 			}
 			
