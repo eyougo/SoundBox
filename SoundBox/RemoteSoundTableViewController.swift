@@ -31,8 +31,9 @@ class RemoteSoundTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadData()
-        let compare = UIDevice.current.systemVersion.compare("10.0.0", options: .numeric)
+        let compare = UIDevice.current.systemVersion.compare("10.0", options: .numeric)
         if compare != .orderedAscending {
+            print("sytem compare:\(compare)")
             self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
         }
         self.soundPlayer.addObserver(self, forKeyPath: "rate", options: [.new, .old], context: nil)
@@ -177,7 +178,6 @@ class RemoteSoundTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.soundPlayer.pause()
         let remoteSound = remoteSounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         if let url = remoteSound.url {
             let fileURL = URL(string: url)

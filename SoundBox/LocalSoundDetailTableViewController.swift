@@ -91,7 +91,7 @@ class LocalSoundDetailTableViewController: UITableViewController {
 			self.descTextView.text = desc
 		}
         
-        let compare = UIDevice.current.systemVersion.compare("10.0.0", options: .numeric)
+        let compare = UIDevice.current.systemVersion.compare("10.0", options: .numeric)
         if compare != .orderedAscending {
             self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
         }
