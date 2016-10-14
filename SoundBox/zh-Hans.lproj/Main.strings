@@ -11,8 +11,8 @@
 /* Class = "UITabBarItem"; title = "关于更多"; ObjectID = "EOC-PG-R09"; */
 "EOC-PG-R09.title" = "关于更多";
 
-/* Class = "UINavigationItem"; title = "我的声音"; ObjectID = "EdK-Os-ApV"; */
-"EdK-Os-ApV.title" = "我的声音";
+/* Class = "UINavigationItem"; title = "我的音效"; ObjectID = "EdK-Os-ApV"; */
+"EdK-Os-ApV.title" = "我的音效";
 
 /* Class = "UILabel"; text = ">"; ObjectID = "G9f-ay-11f"; */
 "G9f-ay-11f.text" = ">";
@@ -20,11 +20,11 @@
 /* Class = "UITableViewSection"; headerTitle = "更多"; ObjectID = "JAt-js-wK2"; */
 "JAt-js-wK2.headerTitle" = "更多";
 
-/* Class = "UINavigationItem"; title = "模拟大师"; ObjectID = "Kuy-W1-bFu"; */
-"Kuy-W1-bFu.title" = "模拟大师";
+/* Class = "UINavigationItem"; title = "音效盒子"; ObjectID = "Kuy-W1-bFu"; */
+"Kuy-W1-bFu.title" = "音效盒子";
 
-/* Class = "UIButton"; normalTitle = "📥下载到我的声音"; ObjectID = "N16-EO-Wgm"; */
-"N16-EO-Wgm.normalTitle" = "📥下载到我的声音";
+/* Class = "UIButton"; normalTitle = "📥下载到我的音效"; ObjectID = "N16-EO-Wgm"; */
+"N16-EO-Wgm.normalTitle" = "📥下载到我的音效";
 
 /* Class = "UILabel"; text = "版本"; ObjectID = "NI4-lg-tdO"; */
 "NI4-lg-tdO.text" = "版本";
@@ -35,8 +35,8 @@
 /* Class = "UILabel"; text = "循环"; ObjectID = "aR3-G5-zhA"; */
 "aR3-G5-zhA.text" = "循环";
 
-/* Class = "UITabBarItem"; title = "我的声音"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "我的声音";
+/* Class = "UITabBarItem"; title = "我的音效"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "我的音效";
 
 /* Class = "UILabel"; text = "摇一摇播放"; ObjectID = "bEA-eF-UC5"; */
 "bEA-eF-UC5.text" = "摇一摇播放";
@@ -47,8 +47,8 @@
 /* Class = "UINavigationItem"; title = "关于更多"; ObjectID = "ibI-vm-WfW"; */
 "ibI-vm-WfW.title" = "关于更多";
 
-/* Class = "UITextView"; text = "【SoundBox音效盒子】是一款模拟各种好玩的声音声效的App。在【我的声音】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【模拟大师】中可以下载到各种好玩的音效，而且还在不断增加中噢。"; ObjectID = "juU-Vd-Bed"; */
-"juU-Vd-Bed.text" = "【SoundBox音效盒子】是一款模拟各种好玩的声音声效的App。在【我的声音】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【模拟大师】中可以下载到各种好玩的音效，而且还在不断增加中噢。";
+/* Class = "UITextView"; text = "【SoundBox音效盒子】是一款模拟各种好玩的声音声效的App。在【我的音效】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【音效盒子】中可以下载到各种好玩的音效，而且还在不断增加中噢。"; ObjectID = "juU-Vd-Bed"; */
+"juU-Vd-Bed.text" = "【SoundBox音效盒子】是一款模拟各种好玩的声音声效的App。在【我的音效】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【音效盒子】中可以下载到各种好玩的音效，而且还在不断增加中噢。";
 
 /* Class = "UILabel"; text = "反馈"; ObjectID = "viB-JH-rB0"; */
 "viB-JH-rB0.text" = "反馈";
@@ -56,8 +56,8 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "xM9-5G-oDW"; */
 "xM9-5G-oDW.text" = "Label";
 
-/* Class = "UITabBarItem"; title = "模拟大师"; ObjectID = "zYS-2C-ol5"; */
-"zYS-2C-ol5.title" = "模拟大师";
+/* Class = "UITabBarItem"; title = "音效盒子"; ObjectID = "zYS-2C-ol5"; */
+"zYS-2C-ol5.title" = "音效盒子";
 
 /* Class = "UILabel"; text = "1.0 (1)"; ObjectID = "zjM-Q9-QTH"; */
 "zjM-Q9-QTH.text" = "1.0 (1)";

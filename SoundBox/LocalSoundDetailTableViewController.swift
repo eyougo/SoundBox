@@ -93,7 +93,11 @@ class LocalSoundDetailTableViewController: UITableViewController {
         
         let compare = UIDevice.current.systemVersion.compare("10.0", options: .numeric)
         if compare != .orderedAscending {
-            self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+            if #available(iOS 10.0, *) {
+                self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+            } else {
+                // Fallback on earlier versions
+            }
         }
 	}
 	

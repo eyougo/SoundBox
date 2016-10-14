@@ -33,8 +33,11 @@ class RemoteSoundTableViewController: UITableViewController {
         loadData()
         let compare = UIDevice.current.systemVersion.compare("10.0", options: .numeric)
         if compare != .orderedAscending {
-            print("sytem compare:\(compare)")
-            self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+            if #available(iOS 10.0, *) {
+                self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+            } else {
+                // Fallback on earlier versions
+            }
         }
         self.soundPlayer.addObserver(self, forKeyPath: "rate", options: [.new, .old], context: nil)
         self.soundPlayer.addObserver(self, forKeyPath: "status", options: [.new, .old], context: nil)
@@ -242,17 +245,15 @@ class RemoteSoundTableViewController: UITableViewController {
         }
         
         switch (keyPath!) {
-        case "status":
-            print("status changed: \(change)")
-        case "currentItem":
-            print("currentItem changed: \(change)")
+        case "status": break
+        case "currentItem": break
         case "rate":
-            print("rate changed: \(change)")
             if change?[.oldKey] as? Float == 1.0 && change?[.newKey] as? Float == 0.0{
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     self.tableView.deselectRow(at: indexPath, animated: true)
                 }
             }
+            break
         default:
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
