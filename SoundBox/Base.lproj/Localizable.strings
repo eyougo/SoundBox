@@ -12,3 +12,5 @@
 "OK" = "好的";
 "DownToMySounds" = "已下载到我的音效中";
 "ExistInMySounds" = "我的音效中已存在";
+"SetSuccess" = "设置成功";
+"ShakeToPlay" = "请点击“好的”之后摇动手机播放";

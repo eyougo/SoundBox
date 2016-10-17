@@ -34,8 +34,8 @@ class LocalSoundDetailTableViewController: UITableViewController {
 	@IBAction func shakeSwitchAction(_ sender: UISwitch) {
 		if sender.isOn {
 			MobClick.event("SetShakePlay")
-			let alertController = UIAlertController(title: "设置成功", message: "请点击“好的”之后摇动手机播放", preferredStyle: .alert)
-			let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil)
+			let alertController = UIAlertController(title: NSLocalizedString("SetSuccess", comment: ""), message: NSLocalizedString("ShakeToPlay", comment: ""), preferredStyle: .alert)
+			let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: nil)
 			alertController.addAction(okAction)
 			self.present(alertController, animated: true, completion: nil)
 			self.becomeFirstResponder()
