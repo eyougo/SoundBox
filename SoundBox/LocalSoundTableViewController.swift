@@ -86,7 +86,7 @@ class LocalSoundTableViewController: UITableViewController {
 		} else {
 			self.tableView.separatorStyle = .none;
 			let label = UILabel()
-			label.text = "我的音效是空的！\r\n快到音效盒子里去下载声音吧";
+			label.text = NSLocalizedString("MySoundsIsEmpty", comment: "");
 			label.numberOfLines = 2;
 			label.textAlignment = .center;
 			label.textColor = UIColor.darkGray;

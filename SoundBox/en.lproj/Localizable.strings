@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  SoundBox
+
+  Created by Mei on 10/17/16.
+  Copyright © 2016 Mei. All rights reserved.
+*/
+"MySoundsIsEmpty" = "My Sounds is empty！\r\nPlease go to [Sound Box] tab for downloading";
+"SoundBoxIsEmpty" = "Can't fetch data right now\r\nPlease pull down for refreshing later";
+"DownSuccess" = "Download Success";
+"DownFail" = "Download Failed";
+"OK" = "OK";
+"DownToMySounds" = "Have Downloaded to [My Sounds]";
+"ExistInMySounds" = "Exist in [My Sounds]";

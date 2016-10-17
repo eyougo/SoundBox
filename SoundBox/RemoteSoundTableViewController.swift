@@ -75,7 +75,7 @@ class RemoteSoundTableViewController: UITableViewController {
                     if self.remoteSounds.count == 0 || self.remoteSounds[0].count > 0 {
                         if let view = self.tableView.backgroundView {
                             let label = view as! UILabel
-                            label.text = "暂时无法获取到数据，请稍候下拉刷新"
+                            label.text = NSLocalizedString("SoundBoxIsEmply", comment: "")
                         }
                     } else {
                         
@@ -156,18 +156,18 @@ class RemoteSoundTableViewController: UITableViewController {
         cell.downloadAction = { (cell) in
             if let remoteSound = cell.remoteSound {
                 remoteDataController?.downloadSound(remoteSound, finished: { (success, message, remoteSound, file) in
-                    let alertController = UIAlertController(title: "下载失败", message: message, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil)
+                    let alertController = UIAlertController(title: NSLocalizedString("DownFail", comment: ""), message: message, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: nil)
                     alertController.addAction(okAction)
                     //if success {
                         if let filePath = file {
                             
                             if let saved = localDataController?.saveRemoteSound(remoteSound, file: filePath) {
                                 if saved == true{
-                                    alertController.title = "下载成功"
-                                    alertController.message = "已下载到我的声音中"
+                                    alertController.title = NSLocalizedString("DownSuccess", comment: "")
+                                    alertController.message = NSLocalizedString("DownToMySounds", comment: "")
                                 } else {
-                                    alertController.message = "我的声音中已存在"
+                                    alertController.message = NSLocalizedString("ExistInMySounds", comment: "")
                                 }
                             }
                         }

@@ -25,7 +25,9 @@ class AboutMoreTableViewController: UITableViewController {
         let infoDictionary = Bundle.main.infoDictionary
         let majorVersion = infoDictionary! ["CFBundleShortVersionString"] as! String
         let minorVersion = infoDictionary! ["CFBundleVersion"] as! String
-        versionLabel.text = majorVersion + " (" + minorVersion + ")"
+        self.versionLabel.text = majorVersion + " (" + minorVersion + ")"
+        let aboutText = NSLocalizedString( "juU-Vd-Bed.text", tableName: "Main", comment: "")
+        self.aboutTextView.text = aboutText
     }
     
     override func viewWillAppear(_ animated: Bool) {

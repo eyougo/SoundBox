@@ -6,70 +6,70 @@
 "7bV-0V-dPu.text" = "Label";
 
 /* Class = "UILabel"; text = "播放"; ObjectID = "9iC-cV-7KJ"; */
-"9iC-cV-7KJ.text" = "播放";
+"9iC-cV-7KJ.text" = "Play";
 
 /* Class = "UITabBarItem"; title = "关于更多"; ObjectID = "EOC-PG-R09"; */
-"EOC-PG-R09.title" = "关于更多";
+"EOC-PG-R09.title" = "About More";
 
 /* Class = "UINavigationItem"; title = "我的音效"; ObjectID = "EdK-Os-ApV"; */
-"EdK-Os-ApV.title" = "我的音效";
+"EdK-Os-ApV.title" = "My Sounds";
 
 /* Class = "UILabel"; text = ">"; ObjectID = "G9f-ay-11f"; */
 "G9f-ay-11f.text" = ">";
 
 /* Class = "UITableViewSection"; headerTitle = "更多"; ObjectID = "JAt-js-wK2"; */
-"JAt-js-wK2.headerTitle" = "更多";
+"JAt-js-wK2.headerTitle" = "More";
 
 /* Class = "UINavigationItem"; title = "音效盒子"; ObjectID = "Kuy-W1-bFu"; */
-"Kuy-W1-bFu.title" = "音效盒子";
+"Kuy-W1-bFu.title" = "Sound Box";
 
 /* Class = "UIButton"; normalTitle = "📥下载到我的声音"; ObjectID = "N16-EO-Wgm"; */
-"N16-EO-Wgm.normalTitle" = "📥下载到我的声音";
+"N16-EO-Wgm.normalTitle" = "📥Download to My Sounds";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "NuO-6F-a58"; */
 "NuO-6F-a58.text" = "Label";
 
 /* Class = "UILabel"; text = "SoundBox音效盒子"; ObjectID = "Tda-ZM-5uS"; */
-"Tda-ZM-5uS.text" = "SoundBox音效盒子";
+"Tda-ZM-5uS.text" = "SoundBox";
 
 /* Class = "UILabel"; text = "循环"; ObjectID = "aR3-G5-zhA"; */
-"aR3-G5-zhA.text" = "循环";
+"aR3-G5-zhA.text" = "Switch Loop";
 
 /* Class = "UITabBarItem"; title = "我的音效"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "我的音效";
+"acW-dT-cKf.title" = "My Sounds";
 
 /* Class = "UILabel"; text = "摇一摇播放"; ObjectID = "bEA-eF-UC5"; */
-"bEA-eF-UC5.text" = "摇一摇播放";
+"bEA-eF-UC5.text" = "Shake to Play";
 
 /* Class = "UINavigationController"; title = "音效盒子"; ObjectID = "c8y-xU-Zpy"; */
-"c8y-xU-Zpy.title" = "音效盒子";
+"c8y-xU-Zpy.title" = "Sound Box";
 
 /* Class = "UITableViewSection"; headerTitle = "关于"; ObjectID = "gL2-9s-ar1"; */
-"gL2-9s-ar1.headerTitle" = "关于";
+"gL2-9s-ar1.headerTitle" = "About";
 
 /* Class = "UINavigationItem"; title = "关于更多"; ObjectID = "ibI-vm-WfW"; */
-"ibI-vm-WfW.title" = "关于更多";
+"ibI-vm-WfW.title" = "About More";
 
 /* Class = "UITextView"; text = "这是一款模拟各种好玩的声音声效的App。在【我的音效】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【音效盒子】中可以下载到大量各种好玩的音效，而且还在不断增加中噢。"; ObjectID = "juU-Vd-Bed"; */
-"juU-Vd-Bed.text" = "这是一款模拟各种好玩的声音声效的App。在【我的音效】中可以选择音效播放，或者开启循环，或者设为摇一摇播放。在【音效盒子】中可以下载到大量各种好玩的音效，而且还在不断增加中噢。";
+"juU-Vd-Bed.text" = "This app is A simulation of a variety of fun sound. In the [My Sounds] you can select the sound playback, or turn on the loop, or set to shake play. In the [Sound Box] you can download sound from a variety of funny sound effects, and the sound box is in the growing Oh.";
 
 /* Class = "UITableViewController"; title = "我的音效"; ObjectID = "l4v-zv-oOz"; */
-"l4v-zv-oOz.title" = "我的音效";
+"l4v-zv-oOz.title" = "My Sounds";
 
 /* Class = "UITableViewController"; title = "音效盒子"; ObjectID = "mZb-Cy-id5"; */
-"mZb-Cy-id5.title" = "音效盒子";
+"mZb-Cy-id5.title" = "Sound Box";
 
 /* Class = "UINavigationController"; title = "我的音效"; ObjectID = "nX6-XB-zQJ"; */
-"nX6-XB-zQJ.title" = "我的音效";
+"nX6-XB-zQJ.title" = "My Sounds";
 
 /* Class = "UILabel"; text = "反馈"; ObjectID = "viB-JH-rB0"; */
-"viB-JH-rB0.text" = "反馈";
+"viB-JH-rB0.text" = "Feedback";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "xM9-5G-oDW"; */
 "xM9-5G-oDW.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "音效盒子"; ObjectID = "zYS-2C-ol5"; */
-"zYS-2C-ol5.title" = "音效盒子";
+"zYS-2C-ol5.title" = "Sound Box";
 
 /* Class = "UILabel"; text = "1.0 (1)"; ObjectID = "zjM-Q9-QTH"; */
 "zjM-Q9-QTH.text" = "1.0 (1)";
