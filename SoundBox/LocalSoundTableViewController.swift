@@ -18,6 +18,8 @@ class LocalSoundTableViewController: UITableViewController {
 	var count = 0
 	
 	var nextStart = 0
+    
+    var soundPlayer = AVPlayer()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -33,6 +35,19 @@ class LocalSoundTableViewController: UITableViewController {
 		
 		self.count = appDelegate.localDataController.fetchLocalSoundCount()
 		loadData()
+        
+        let compare = UIDevice.current.systemVersion.compare("10.0", options: .numeric)
+        if compare != .orderedAscending {
+            if #available(iOS 10.0, *) {
+                self.soundPlayer.automaticallyWaitsToMinimizeStalling = false
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
+        self.soundPlayer.addObserver(self, forKeyPath: "rate", options: [.new, .old], context: nil)
+        self.soundPlayer.addObserver(self, forKeyPath: "status", options: [.new, .old], context: nil)
+        self.soundPlayer.addObserver(self, forKeyPath: "currentItem", options: [.new, .old], context: nil)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -115,7 +130,15 @@ class LocalSoundTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+        let sound = sounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+        if let file = sound.file {
+            let fileManager = FileManager.default
+            let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = directoryURL.appendingPathComponent(file)
+            let item = AVPlayerItem(url: fileURL)
+            self.soundPlayer.replaceCurrentItem(with: item)
+            self.soundPlayer.play()
+        }
 	}
 	
 	// Override to support conditional editing of the table view.
@@ -136,6 +159,10 @@ class LocalSoundTableViewController: UITableViewController {
 			// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 		}
 	}
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "LocalSoundDetail", sender: indexPath)
+    }
 	
 	/*
 	 // Override to support rearranging the table view.
@@ -162,8 +189,7 @@ class LocalSoundTableViewController: UITableViewController {
 			let localSoundDetailTableViewController = segue.destination as! LocalSoundDetailTableViewController
 			
 			// Get the cell that generated this segue.
-			if let selectedSoundCell = sender as? SoundTableViewCell {
-				let indexPath = tableView.indexPath(for: selectedSoundCell)!
+			if let indexPath = sender as? IndexPath {
 				let selectedSound = self.sounds[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 				localSoundDetailTableViewController.sound = selectedSound
 			}
@@ -171,5 +197,26 @@ class LocalSoundTableViewController: UITableViewController {
 		}
 		
 	}
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard keyPath != nil else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+            return
+        }
+        
+        switch (keyPath!) {
+        case "status": break
+        case "currentItem": break
+        case "rate":
+            if change?[.oldKey] as? Float == 1.0 && change?[.newKey] as? Float == 0.0{
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    self.tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
+            break
+        default:
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
 	
 }
